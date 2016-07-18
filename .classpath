@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/aopalliance-repackaged-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/asm-debug-all-5.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/hk2-api-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/hk2-locator-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/hk2-utils-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/javax.inject-2.4.0-b34.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jaxb-api-2.2.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-common.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-container-servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-container-servlet-core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-guava-2.23.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-media-jaxb.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/jersey-server.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/org.osgi.core-4.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Jersy+jaxws/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/fluent-hc-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpclient-cache-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpclient-win-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rakshithas/Desktop/packages/Java-Jason/java-json.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
