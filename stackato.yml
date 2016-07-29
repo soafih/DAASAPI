@@ -1,6 +1,6 @@
 applications:
  - disk_quota: 2048
-   memory: 256
+   memory: 1024
    name: DAASAPI
    path: target/DAASAPI-1.0.war
 

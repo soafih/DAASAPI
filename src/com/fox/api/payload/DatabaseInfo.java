@@ -44,7 +44,15 @@ private String databaseType;
 	private String hostName;
 	private String port;
 	private String databaseName;
+	private String schema;
+	public String getSchema() {
+		return schema;
+	}
+	public void setSchema(String schema) {
+		this.schema = schema;
+	}
 	private String user;
 	private String password;
+	
 	
 }
