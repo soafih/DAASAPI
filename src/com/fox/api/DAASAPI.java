@@ -39,10 +39,10 @@ import org.json.JSONObject;
 
 import com.fox.api.payload.DaasAPIRequest;
 
-@Path("/service")
+@Path("/BuildApp")
 public class DAASAPI {
 	@POST
-	@Path("/DAASAPI")
+	// @Path("/DAASAPI/BuildApp")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 
@@ -55,21 +55,27 @@ public class DAASAPI {
 
 			// String buildURL = getBuildURI(initiateBuild(request));
 			buildIdentifier = initiateBuild(request);
-			int buildNumber = JenkinUtility.getBuildNumber(buildIdentifier);
+			String buildNumber = JenkinUtility.getBuildNumber(buildIdentifier);
 
 			JSONObject rootObj = new JSONObject();
 			JSONObject respObj = new JSONObject();
 
-			respObj.put("result", "Queued");
+			if (buildNumber.equals("0")) {
+				respObj.put("status", "Queued");
+				respObj.put("stage", "");
+				respObj.put("logURL", "log URI not found");
+			}
+
+			else {
+				respObj.put("status", "WIP");
+				respObj.put("stage", "Triggered");
+				respObj.put("logURL",
+						"http://jenkins-06hw6.10.135.4.49.xip.io/job/DAASBuild/" + buildNumber + "/consoleText");
+			}
 			respObj.put("app_ep", "https://" + request.getApplicationName().toLowerCase()
 					+ ".10.135.4.49.xip.io/FIH/service/" + request.getApplicationName());
 			respObj.put("buildNumber", buildNumber);
 			respObj.put("buildIdentifier", buildIdentifier);
-
-			if (buildNumber > 0) {
-				respObj.put("logURL",
-						"http://jenkins-06hw6.10.135.4.49.xip.io/job/DAASBuild/" + buildNumber + "/consoleText");
-			}
 
 			rootObj.put("response", respObj);
 			result = rootObj.toString();
@@ -261,7 +267,7 @@ public class DAASAPI {
 		JSONObject rootObj = new JSONObject();
 		JSONObject respObj = new JSONObject();
 
-		respObj.put("result", "failure");
+		respObj.put("status", "Error");
 		respObj.put("ErrorDetails", ex.getMessage());
 		if (buildIdentifier != null) {
 			respObj.put("buildIdentifier", buildIdentifier);

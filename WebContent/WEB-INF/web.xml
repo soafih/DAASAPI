@@ -56,6 +56,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>DAASApi</servlet-name>
-    <url-pattern>/FIH/*</url-pattern>
+    <url-pattern>/FIH/service/DAASAPI/*</url-pattern>
   </servlet-mapping>
 </web-app>
