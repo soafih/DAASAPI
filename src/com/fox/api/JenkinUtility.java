@@ -162,12 +162,34 @@ public class JenkinUtility {
 				respObj.put("stage", "");
 				
 			}
-			else if(httpRespBody.contains("Build step 'Push to Cloud Foundry' marked build as failure"))
+			
+			else if (httpRespBody.contains("Finished: FAILURE"))
 			{
 				respObj.put("status", "Failed");
-				respObj.put("stage", "PushFailed");
+				
+				 if(httpRespBody.contains("Build step 'Push to Cloud Foundry' marked build as failure"))
+				{
+					
+					respObj.put("stage", "PushFailed");
+					
+				}
+				 else if(httpRespBody.contains("BUILD FAILURE"))
+					{
+						
+						respObj.put("stage", "BuildFailed");
+						
+					}
+				 
+				 else if(httpRespBody.contains("ERROR: Error fetching remote repo 'origin'"))
+					{
+						
+						respObj.put("stage", "CheckoutFailed");
+						
+					}
+				 
 				
 			}
+			
 			
 			else if(httpRespBody.contains("Cloud Foundry push successful"))
 			{
@@ -176,6 +198,9 @@ public class JenkinUtility {
 				
 			}
 			
+						
+			
+			
 			else if(httpRespBody.contains("BUILD SUCCESS"))
 			{
 				respObj.put("status", "WIP");
@@ -183,22 +208,18 @@ public class JenkinUtility {
 				
 			}
 			
-			else if(httpRespBody.contains("BUILD FAILURE"))
-			{
-				respObj.put("status", "Failed");
-				respObj.put("stage", "BuildFailure");
-				
-			}
 			
-			else if(httpRespBody.contains("git rev-list"))
+			
+			else if(httpRespBody.contains("git checkout"))
 			{
 				respObj.put("status", "WIP");
 				respObj.put("stage", "Checkedout");
 				
 			}
+			
 			else
 			{
-				respObj.put("status", "Failed");
+				respObj.put("status", "UNKNOWN");
 				respObj.put("stage", "");
 			}
 			
@@ -209,7 +230,7 @@ public class JenkinUtility {
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
-			throw new Exception ("Error obtaining the status for the build ");
+			throw new Exception("Error obtaining the status for the build ");
 		}
 	}
 	
