@@ -1,4 +1,4 @@
-package com.fox.api.payload;
+package com.fox.api.daas.payload;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
