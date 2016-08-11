@@ -4,6 +4,8 @@ package com.fox.api.daas;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -15,6 +17,7 @@ import org.json.JSONObject;
 
 import com.fox.api.daas.payload.DaasAPIRequest;
 import com.fox.api.daas.util.DAASUtility;
+import com.fox.api.daas.util.DatabaseUtility;
 import com.fox.api.daas.util.JenkinUtility;
 
 @Path("/BuildApp")
@@ -75,38 +78,7 @@ public class DAASAPI {
 
 	private String generateInput(DaasAPIRequest request) throws Exception {
 
-		String dbType = request.getDatabaseInfo().getDatabaseType().toLowerCase();
-		String driverClass;
-		String connectionString;
-
-		if (dbType.equals("oracle")) {
-			driverClass = "oracle.jdbc.driver.OracleDriver";
-			connectionString = "jdbc:oracle:thin:@" + request.getDatabaseInfo().getHostName() + ":"
-					+ request.getDatabaseInfo().getPort() + "/" + request.getDatabaseInfo().getDatabaseName();
-
-		} else if (dbType.equals("as400")) {
-			driverClass = "com.ibm.as400.access.AS400JDBCDriver";
-			connectionString = "jdbc:as400://" + request.getDatabaseInfo().getHostName() + ";databaseName="
-					+ request.getDatabaseInfo().getDatabaseName() + ";prompt=false;naming=system;libraries="
-					+ request.getDatabaseInfo().getSchema();
-
-		}
-
-		else if (dbType.equals("sqlserver")) {
-			driverClass = "com.microsoft.jdbc.sqlserver.SQLServerDriver";
-			connectionString = "jdbc:mysql://" + request.getDatabaseInfo().getHostName() + "/"
-					+ request.getDatabaseInfo().getDatabaseName();
-		}
-
-		else if (dbType.equals("mysql")) {
-			driverClass = "com.mysql.jdbc.Driver";
-			connectionString = "jdbc:microsoft:sqlserver://" + request.getDatabaseInfo().getHostName() + ":"
-					+ request.getDatabaseInfo().getPort() + ";databaseName="
-					+ request.getDatabaseInfo().getDatabaseName();
-
-		} else {
-			throw new Exception("Database Type: My" + dbType + " not supported");
-		}
+		Map<String, String> dbCon = DatabaseUtility.getConnectionDetails(request.getDatabaseInfo());
 
 		StringBuffer sb = new StringBuffer("");
 		sb.append("organization=" + request.getOrganization() + "\n");
@@ -114,8 +86,8 @@ public class DAASAPI {
 		sb.append("applicationName=" + request.getApplicationName() + "\n");
 		sb.append("appHostName=" + request.getApplicationName().toLowerCase() + "\n");
 		sb.append("query=" + request.getQuery() + "\n");
-		sb.append("driverClassName=" + driverClass + "\n");
-		sb.append("ConnectionString=" + connectionString + "\n");
+		sb.append("driverClassName=" + dbCon.get("driverClass") + "\n");
+		sb.append("ConnectionString=" + dbCon.get("connectionURL") + "\n");
 		sb.append("dbuser=" + request.getDatabaseInfo().getUser() + "\n");
 		sb.append("password=" + request.getDatabaseInfo().getPassword() + "\n");
 		sb.append("maxActive=" + request.getConnectionAttr().getMaxActive() + "\n");
@@ -132,7 +104,7 @@ public class DAASAPI {
 		JSONObject respObj = new JSONObject();
 
 		respObj.put("status", "Error");
-		respObj.put("ErrorDetails", ex.getMessage());
+		respObj.put("errorDetails", ex.getMessage());
 		if (buildIdentifier != null) {
 			respObj.put("buildIdentifier", buildIdentifier);
 		}

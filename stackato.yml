@@ -2,4 +2,5 @@ applications:
  - disk_quota: 1024
    memory: 512
    name: DAASAPI
+   buildpack: https://github.com/cloudfoundry/java-buildpack.git
    path: target/DAASAPI-1.0.war
