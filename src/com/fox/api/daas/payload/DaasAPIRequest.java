@@ -10,7 +10,9 @@ public class DaasAPIRequest {
 	 private String query;
 	 private String organization;
 	 private String space;
-	 private DatabaseConnectionAttr connectionAttr;
+	 private String domain;
+
+	private DatabaseConnectionAttr connectionAttr;
 	
 	public String getApplicationName() {
 		return applicationName;
@@ -49,6 +51,12 @@ public class DaasAPIRequest {
 	}
 	public void setQuery(String query) {
 		this.query = query;
+	}
+	 public String getDomain() {
+		return domain;
+	}
+	public void setDomain(String domain) {
+		this.domain = domain;
 	}
 	
 	

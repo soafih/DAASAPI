@@ -11,6 +11,7 @@ import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.BasicResponseHandler;
@@ -22,13 +23,17 @@ import com.fox.api.daas.payload.DaasAPIRequest;
 
 public class JenkinUtility {
 	
-	private static String jenkinURL = DAASUtility.getProperty("JenkinURL"); 
-	private static String jenkinJob = DAASUtility.getProperty("JenkinJob");
+	//private static String jenkinURL = DAASUtility.getProperty("JenkinURL"); 
+	//private static String jenkinJob = DAASUtility.getProperty("JenkinJob");
 	
-
+	private static String jenkinURL = System.getenv("JenkinURL"); 
+	private static String jenkinJob = System.getenv("JenkinJob");
+	
 	public static String getBuildNumber(String jobIdentifier) throws Exception {
 
-		CloseableHttpClient httpClient = HttpClients.createDefault();
+		CloseableHttpClient httpClient =  HttpClients.custom()
+                .setSSLHostnameVerifier(new NoopHostnameVerifier())
+                .build();
 		CloseableHttpResponse jenkinResp = null;
 		String buildNumber = "0";
 		String url = jenkinURL+"/api/xml?tree=jobs[name,builds[number,actions[parameters[name,value]]]]&xpath=/hudson/job[name='"+jenkinJob+"']/build[action/parameter[name='job_identifier'][value='"
@@ -69,7 +74,9 @@ public class JenkinUtility {
 	}
 
 	public static JSONObject getStatus(String buildNumber) throws Exception {
-		CloseableHttpClient httpClient = HttpClients.createDefault();
+		CloseableHttpClient httpClient =  HttpClients.custom()
+                .setSSLHostnameVerifier(new NoopHostnameVerifier())
+                .build();
 		CloseableHttpResponse jenkinResp = null;
 		JSONObject rootObj = new JSONObject();
 		JSONObject respObj = new JSONObject();
@@ -143,7 +150,9 @@ public class JenkinUtility {
 	}
 
 	public static String initiateBuild(String jobIdentifier,String request) throws Exception {
-		CloseableHttpClient httpclient = HttpClients.createDefault();
+		CloseableHttpClient httpclient =  HttpClients.custom()
+                .setSSLHostnameVerifier(new NoopHostnameVerifier())
+                .build();
 		CloseableHttpResponse jenkinResp = null;
 		try {
 

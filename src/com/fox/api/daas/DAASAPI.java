@@ -50,12 +50,12 @@ public class DAASAPI {
 			else {
 				respObj.put("status", "WIP");
 				respObj.put("stage", "Triggered");
-				respObj.put("logURL",DAASUtility.getProperty("JenkinURL")+"/job/"+DAASUtility.getProperty("JenkinJob")+"/"+buildNumber + "/consoleText");
+				respObj.put("logURL",System.getenv("JenkinURL")+"/job/"+System.getenv("JenkinJob")+"/"+buildNumber + "/consoleText");
 						
 			}
 			
 			respObj.put("app_ep", "https://" + request.getApplicationName().toLowerCase()
-					+ "."+DAASUtility.getProperty("StackatoDomain")+"/FIH/service/" + request.getApplicationName());
+					+ "."+System.getenv("StackatoDomain")+"/FIH/service/" + request.getApplicationName());
 			respObj.put("buildNumber", buildNumber);
 			respObj.put("buildIdentifier", buildIdentifier);
 
