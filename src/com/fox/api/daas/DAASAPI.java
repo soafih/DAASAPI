@@ -55,7 +55,7 @@ public class DAASAPI {
 			}
 			
 			respObj.put("app_ep", "https://" + request.getApplicationName().toLowerCase()
-					+ "."+System.getenv("StackatoDomain")+"/FIH/service/" + request.getApplicationName());
+					+ "."+request.getDomain()+"/FIH/service/" + request.getApplicationName());
 			respObj.put("buildNumber", buildNumber);
 			respObj.put("buildIdentifier", buildIdentifier);
 
@@ -83,6 +83,7 @@ public class DAASAPI {
 		StringBuffer sb = new StringBuffer("");
 		sb.append("organization=" + request.getOrganization() + "\n");
 		sb.append("space=" + request.getSpace() + "\n");
+		sb.append("domain=" + request.getDomain() + "\n");
 		sb.append("applicationName=" + request.getApplicationName() + "\n");
 		sb.append("appHostName=" + request.getApplicationName().toLowerCase() + "\n");
 		sb.append("query=" + request.getQuery() + "\n");
