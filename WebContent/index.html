@@ -65,14 +65,15 @@ article {
   <p> <b>DAAS build API</b> is a REST webservice used to create applications, which access the data from various data-sources. The API accepts the application related information along with the Database connection details.</p>
   <br>
 
-  <h1>REST Endpoint</h1>  
-  <p><a href="http://daasapi.10.135.4.49.xip.io/FIH/service/DAASAPI">http://daasapi.10.135.4.49.xip.io/FIH/service/DAASAPI</a> with method : POST</p>
+  <h1>REST URI PATH</h1>  
+  <p>"FIH/service/DAASAPI" with method : POST</p>
   <br>
   
   <h1>Sample Request</h1>  
   <p>{<br>
     &nbsp;  "organization":"TESTORG",<br>
     &nbsp;  "space":"TESTSPACE",<br>
+	&nbsp;  "domain":"TESTDOMAIN",<br>
     &nbsp;  "applicationName":"TESTAPP",<br>
     &nbsp;  "query":"SELECT NAME FROM T1 WHERE ID='#ID#',<br>
   
@@ -100,9 +101,12 @@ article {
   <p>{<br>
     &nbsp;  "response":<br>
 	 &nbsp; {<br>
-    &nbsp; &nbsp;  "result":"success",<br>
+    &nbsp; &nbsp;  "status":"success",<br>
+	 &nbsp; &nbsp;  "stage":"WIP",<br>
     &nbsp; &nbsp;  "logURL":"URL_TO_LOG",<br>
     &nbsp;  &nbsp; "app_ep":"SERVICE_ENDPOINT",<br>
+	&nbsp;  &nbsp; "buildNumber":"JENKIN BUILD NUMBER",<br>
+	&nbsp;  &nbsp; "buildIdentifier":"JENKIN BUILD IDENTIFIER",<br>
    &nbsp; } <br>
    }
     </p>
