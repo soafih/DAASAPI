@@ -4,3 +4,9 @@ applications:
    name: DAASAPI
    buildpack: https://github.com/cloudfoundry/java-buildpack.git
    path: target/DAASAPI-1.0.war
+   stackato:
+     env:
+       JBP_CONFIG_OPEN_JDK_JRE: "{jre: { version: 1.7.0_+ }}"
+       JenkinJob: <JobName>
+       JenkinURL: <JobURL>
+       StackatoDomain: <DomainName>
