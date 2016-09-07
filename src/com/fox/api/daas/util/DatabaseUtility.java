@@ -44,7 +44,7 @@ public class DatabaseUtility {
 					+ ";databaseName=" + dbInfo.getDatabaseName();
 
 		} else {
-			throw new Exception("Database Type: My" + dbType + " not supported");
+			throw new Exception("Database Type: " + dbType + " not supported");
 		}
 		Map<String, String> dbConn = new HashMap<String, String>();
 		dbConn.put("connectionURL", connectionURL);
@@ -55,7 +55,7 @@ public class DatabaseUtility {
 	}
 
 	
-	private static Connection createConnection(Map<String, String> dbConn)
+	public static Connection createConnection(Map<String, String> dbConn)
 			throws ClassNotFoundException, SQLException {
 		
 

@@ -6,7 +6,7 @@ applications:
    path: target/DAASAPI-1.0.war
    stackato:
      env:
-       JBP_CONFIG_OPEN_JDK_JRE: "{jre: { version: 1.7.0_+ }}"
-       JenkinJob: <JobName>
-       JenkinURL: <JobURL>
-       StackatoDomain: <DomainName>
+       JBP_CONFIG_OPEN_JDK_JRE: "{jre: { version: 1.8.0_73 }}"
+       JenkinJob: "DAASBuild_DEV"
+       JenkinURL: <jenkinURL>
+       StackatoDomain: <stackatoDomain>
