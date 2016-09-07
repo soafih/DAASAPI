@@ -102,15 +102,16 @@ public class JenkinUtility {
 
 					respObj.put("stage", "PushFailed");
 
-				} else if (httpRespBody.contains("BUILD FAILURE")) {
-
-					respObj.put("stage", "BuildFailed");
-
-				}
+				} 
 
 				else if (httpRespBody.contains("ERROR: Error fetching remote repo 'origin'")) {
 
 					respObj.put("stage", "CheckoutFailed");
+
+				}
+				else {
+
+					respObj.put("stage", "BuildFailed");
 
 				}
 
