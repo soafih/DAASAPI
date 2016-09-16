@@ -87,6 +87,8 @@ public class DAASAPI {
 		sb.append("applicationName=" + request.getApplicationName() + "\n");
 		sb.append("appHostName=" + request.getApplicationName().toLowerCase() + "\n");
 		sb.append("query=" + request.getQuery() + "\n");
+		sb.append("resultCaching=" + request.getResultCaching() + "\n");
+		sb.append("cacheExpiry=" + request.getCacheExpiry() + "\n");
 		sb.append("driverClassName=" + dbCon.get("driverClass") + "\n");
 		sb.append("ConnectionString=" + dbCon.get("connectionURL") + "\n");
 		sb.append("dbuser=" + request.getDatabaseInfo().getUser() + "\n");
