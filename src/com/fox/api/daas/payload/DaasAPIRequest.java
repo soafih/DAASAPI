@@ -11,6 +11,33 @@ public class DaasAPIRequest {
 	 private String organization;
 	 private String space;
 	 private String domain;
+	 private String resultCaching;
+	private String cacheExpiry;
+	private String cacheCounter;
+
+	public String getCacheCounter() {
+		return cacheCounter;
+	}
+
+	public void setCacheCounter(String cacheCounter) {
+		this.cacheCounter = cacheCounter;
+	}
+
+	public String getResultCaching() {
+		return resultCaching;
+	}
+
+	public void setResultCaching(String resultCaching) {
+		this.resultCaching = resultCaching;
+	}
+
+	public String getCacheExpiry() {
+		return cacheExpiry;
+	}
+
+	public void setCacheExpiry(String cacheExpiry) {
+		this.cacheExpiry = cacheExpiry;
+	}
 
 	private DatabaseConnectionAttr connectionAttr;
 	
