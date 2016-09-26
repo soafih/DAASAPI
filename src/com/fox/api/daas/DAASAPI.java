@@ -89,6 +89,7 @@ public class DAASAPI {
 		sb.append("query=" + request.getQuery() + "\n");
 		sb.append("resultCaching=" + request.getResultCaching() + "\n");
 		sb.append("cacheExpiry=" + request.getCacheExpiry() + "\n");
+		sb.append("CacheCounter="+request.getCacheCounter()+"\n");
 		sb.append("driverClassName=" + dbCon.get("driverClass") + "\n");
 		sb.append("ConnectionString=" + dbCon.get("connectionURL") + "\n");
 		sb.append("dbuser=" + request.getDatabaseInfo().getUser() + "\n");
@@ -97,7 +98,6 @@ public class DAASAPI {
 		sb.append("maxIdle=" + request.getConnectionAttr().getMaxIdle() + "\n");
 		sb.append("maxWait=" + request.getConnectionAttr().getMaxWait() + "\n");
 
-		
 		return sb.toString();
 	}
 

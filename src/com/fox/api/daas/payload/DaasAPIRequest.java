@@ -13,6 +13,15 @@ public class DaasAPIRequest {
 	 private String domain;
 	 private String resultCaching;
 	private String cacheExpiry;
+	private String cacheCounter;
+
+	public String getCacheCounter() {
+		return cacheCounter;
+	}
+
+	public void setCacheCounter(String cacheCounter) {
+		this.cacheCounter = cacheCounter;
+	}
 
 	public String getResultCaching() {
 		return resultCaching;
